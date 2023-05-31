@@ -1,4 +1,4 @@
-package com.jcloud.kafka.pojo;
+package com.demo.kafka.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

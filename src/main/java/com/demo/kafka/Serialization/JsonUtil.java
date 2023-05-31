@@ -1,4 +1,4 @@
-package com.jcloud.kafka.Serialization;
+package com.demo.kafka.Serialization;
 /**
  *
  * @author sangchengliang

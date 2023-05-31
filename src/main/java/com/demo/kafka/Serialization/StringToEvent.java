@@ -1,7 +1,7 @@
-package com.jcloud.kafka.Serialization;
+package com.demo.kafka.Serialization;
 
 import com.alibaba.fastjson2.JSON;
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import org.apache.kafka.streams.kstream.ValueMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

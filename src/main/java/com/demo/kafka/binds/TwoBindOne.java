@@ -1,6 +1,6 @@
-package com.jcloud.kafka.binds;
+package com.demo.kafka.binds;
 
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import jakarta.annotation.Resource;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KeyValueMapper;

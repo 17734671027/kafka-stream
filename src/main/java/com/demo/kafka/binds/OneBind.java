@@ -1,4 +1,4 @@
-package com.jcloud.kafka.binds;
+package com.demo.kafka.binds;
 
 import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.context.annotation.Bean;

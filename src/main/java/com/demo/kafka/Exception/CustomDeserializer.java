@@ -1,4 +1,4 @@
-package com.jcloud.kafka.Exception;
+package com.demo.kafka.Exception;
 
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;

@@ -1,6 +1,6 @@
-package com.jcloud.kafka.dsl;
+package com.demo.kafka.dsl;
 
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import org.apache.kafka.streams.kstream.KeyValueMapper;
 import org.springframework.stereotype.Component;
 

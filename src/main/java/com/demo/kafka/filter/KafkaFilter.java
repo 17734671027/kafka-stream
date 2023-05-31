@@ -1,7 +1,7 @@
-package com.jcloud.kafka.filter;
+package com.demo.kafka.filter;
 
 
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import org.apache.kafka.streams.kstream.Predicate;
 
 

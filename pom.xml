@@ -8,7 +8,7 @@
         <version>3.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.jcloud</groupId>
+    <groupId>com.demo</groupId>
     <artifactId>kafka-stream</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kafka-stream</name>
@@ -74,7 +74,7 @@
                 </executions>
                 <configuration>
                     <imageName>kafka</imageName>
-                    <mainClass>com.jcloud.kafka.KafkaApplication</mainClass>
+                    <mainClass>com.demo.kafka.KafkaApplication</mainClass>
 
                 </configuration>
             </plugin>

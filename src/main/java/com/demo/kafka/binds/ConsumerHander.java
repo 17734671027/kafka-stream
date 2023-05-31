@@ -1,6 +1,6 @@
-package com.jcloud.kafka.binds;
+package com.demo.kafka.binds;
 
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

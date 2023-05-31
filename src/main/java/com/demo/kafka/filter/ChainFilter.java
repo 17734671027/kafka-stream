@@ -1,7 +1,7 @@
-package com.jcloud.kafka.filter;
+package com.demo.kafka.filter;
 
 
-import com.jcloud.kafka.pojo.Event;
+import com.demo.kafka.pojo.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
