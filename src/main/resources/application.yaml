@@ -1,0 +1,147 @@
+log:
+  path: ../
+  level: info
+
+spring:
+  deserializer:
+    value:
+      function: com.jcloud.kafka.Exception.CustomDeserializer
+    key:
+      function: com.jcloud.kafka.Exception.CustomDeserializer
+  cloud:
+    function:
+      definition: processOne;consumerOne;twoToZero;twoToOne;twoToMultiple;multipleToMultiple;commonCousumer1;commonCousumer2;commonCousumer3
+    stream:
+      bindings:
+        processOne-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: process_one
+        processOne-out-0:
+          producer:
+            partition-count: 3
+          destination: process_one_out
+        consumerOne-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: process_one_out
+        twoToZero-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_zero_0
+        twoToZero-in-1:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_zero_1
+        twoToOne-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_one_in_0
+        twoToOne-in-1:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_one_in_1
+        twoToOne-out-0:
+          producer:
+            partition-count: 3
+          destination: two_one_out
+        twoToMultiple-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_multiple_in_0
+        twoToMultiple-in-1:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: two_multiple_in_1
+        twoToMultiple-out-0:
+          producer:
+            partition-count: 3
+          destination: common_consumer_0
+        twoToMultiple-out-1:
+          producer:
+            partition-count: 3
+          destination: common_consumer_1
+        twoToMultiple-out-2:
+          producer:
+            partition-count: 3
+          destination: common_consumer_2
+        multipleToMultiple-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: multiple_multiple_in_0
+        multipleToMultiple-in-1:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: multiple_multiple_in_1
+        multipleToMultiple-out-0:
+          producer:
+            partition-count: 3
+          destination: common_consumer_0
+        multipleToMultiple-out-1:
+          producer:
+            partition-count: 3
+          destination: common_consumer_1
+        multipleToMultiple-out-2:
+          producer:
+            partition-count: 3
+          destination: common_consumer_2
+        commonCousumer1-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: common_consumer_0
+        commonCousumer2-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: common_consumer_1
+        commonCousumer3-in-0:
+          consumer:
+            concurrency: 1
+            maxAttempts: 1
+          destination: common_consumer_2
+      kafka:
+        binder:
+          brokers: 127.0.0.1:9092
+          auto-add-partitions: true
+          auto-create-topics: true
+          application-id: AuditTrailFor1
+          minPartitionCount: 3
+#生产环境 replicationFactor 一定不要设置为1 否则网络抖动 或者kafka部分节点宕机 流会关闭不会再消费 处于假死状态
+          replicationFactor: 1
+          default:
+            consumer:
+              keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              valueSerde: org.apache.kafka.common.serialization.StringDeserializer
+            producer:
+              keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              valueSerde: org.apache.kafka.common.serialization.StringSerializer
+          keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+          valueSerde: org.apache.kafka.common.serialization.StringDeserializer
+          configuration:
+            max:
+              poll:
+                records: 100
+                interval:
+                  ms: 600000
+            max.session.timeout.ms: 600000
+            value.deserializer: com.jcloud.kafka.Exception.CustomDeserializer
+            spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+            default:
+              key:
+                serializer: org.apache.kafka.common.serialization.StringSerializer
+              value:
+                serializer: org.apache.kafka.common.serialization.StringSerializer
+            commit.interval.ms: 1000
+            default.key.serde: org.apache.kafka.common.serialization.StringDeserializer
+            default.value.serde: org.apache.kafka.common.serialization.StringDeserializer
